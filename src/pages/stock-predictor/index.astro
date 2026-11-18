@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const pageTitle = "Stock Trend Forecaster | Coming Soon";
+const pageDescription = "Time-series predictive model for market trend analysis. Currently under development.";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 pt-10 pb-20">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-8">
+      <ol class="flex items-center gap-2 text-xs text-[var(--text-muted)]">
+        <li><a href="/" class="hover:text-[var(--text-main)] transition">Home</a></li>
+        <li><span>/</span></li>
+        <li class="font-medium text-[var(--text-main)]" aria-current="page">Stock Trend Forecaster</li>
+      </ol>
+    </nav>
+
+    <!-- Coming Soon Card -->
+    <div class="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface)] p-8 sm:p-12 text-center shadow-sm">
+      <div class="w-12 h-12 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 flex items-center justify-center mx-auto mb-4 text-xl">
+        📈
+      </div>
+
+      <span class="text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400 block mb-2">
+        Model Training in Progress
+      </span>
+
+      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-[var(--text-main)] mb-3">
+        Stock Trend Forecaster
+      </h1>
+
+      <p class="text-sm sm:text-base text-[var(--text-muted)] max-w-lg mx-auto leading-relaxed mb-8">
+        This time-series model is being trained to analyze momentum indicators, volatility bands, and moving-average crossovers directly inside your browser.
+      </p>
+
+      <div class="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)] max-w-md mx-auto text-left mb-8">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)] mb-2">Planned Features:</h3>
+        <ul class="text-xs text-[var(--text-main)] space-y-1.5 list-disc list-inside">
+          <li>Time-series trend forecasting with live API price ingestion</li>
+          <li>Technical momentum indicators (RSI, Bollinger Bands, MACD)</li>
+          <li>100% privacy-preserving in-browser computation</li>
+        </ul>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a 
+          href="/burnout-predictor/" 
+          class="px-5 py-2.5 rounded-xl font-semibold text-white bg-purple-700 hover:bg-purple-800 transition shadow-sm text-xs"
+        >
+          Try Live Burnout Model →
+        </a>
+        <a 
+          href="/" 
+          class="px-5 py-2.5 rounded-xl font-medium border border-[var(--border-subtle)] bg-[var(--surface)] hover:bg-[var(--surface-card)] text-xs transition"
+        >
+          ← Back to All Models
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -4,381 +4,145 @@ import Layout from '../layouts/Layout.astro';
 const models = [
   {
     title: "Student Burnout Risk Predictor",
-    category: "Ensemble Classification",
-    badge: "Live Model • ONNX",
-    description: "Evaluates academic fatigue, study habits, and Generative AI dependency on 49,000+ data points with instant client-side diagnosis.",
-    framework: "Random Forest • ONNX WASM",
+    badge: "Live Now",
+    badgeClass: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+    description: "Evaluates academic fatigue, study habits, and Generative AI dependency based on 49,000+ data points with personalized guidance.",
+    tags: ["Ensemble ML", "Private & In-Browser", "Available"],
     route: "/burnout-predictor/",
-    status: "Active"
+    isLive: true
   },
   {
-    title: "House Price Valuation Engine",
-    category: "Supervised Regression",
-    badge: "Interactive Demo",
-    description: "Evaluates multi-variable property metrics (square footage, quality index, location tier) with instant client-side valuation.",
-    framework: "Regression • In-Browser",
-    route: "#lab",
-    status: "Active"
+    title: "House Price Valuation Model",
+    badge: "Coming Soon",
+    badgeClass: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
+    description: "Estimates property valuations using multi-variable regression (square footage, build quality, location tiers).",
+    tags: ["Supervised Regression", "Under Training"],
+    route: "/house-price-predictor/",
+    isLive: false
   },
   {
     title: "Stock Trend Forecaster",
-    category: "Time Series & Momentum",
-    badge: "In-Browser WASM",
-    description: "Computes moving averages, volatility bands, and predictive directional momentum without sending ticker data to any server.",
-    framework: "Time-Series • WebAssembly",
-    route: "#lab",
-    status: "Upcoming"
+    badge: "Coming Soon",
+    badgeClass: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
+    description: "Predicts directional market trends and moving-average volatility bands using time-series modeling.",
+    tags: ["Time-Series", "Under Training"],
+    route: "/stock-predictor/",
+    isLive: false
   },
   {
-    title: "Credit Loan Classifier",
-    category: "Binary Classification",
-    badge: "Zero Latency",
-    description: "Predicts applicant risk profile and loan approval thresholds using optimized decision boundary trees.",
-    framework: "Decision Trees • ONNX",
-    route: "#lab",
-    status: "Upcoming"
+    title: "Credit Loan Approval Classifier",
+    badge: "Coming Soon",
+    badgeClass: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
+    description: "Evaluates applicant risk profiles and credit risk boundaries using optimized decision trees.",
+    tags: ["Classification", "Under Training"],
+    route: "/loan-classifier/",
+    isLive: false
   }
 ];
 
 const faqs = [
   {
-    q: "What makes this Data Science Universe unique?",
-    a: "Every model in this universe is engineered to run directly inside the visitor's browser using ONNX Runtime and WebAssembly. There are zero backend server spin-up delays, zero cold starts, and your data never leaves your device."
+    q: "How do these models run without a backend server?",
+    a: "Every model is exported into the open ONNX format. When you open a model page, your browser executes the calculations locally via WebAssembly with zero latency."
   },
   {
-    q: "How does the machine learning model run without a Python backend?",
-    a: "After training in Jupyter Lab using Scikit-Learn or PyTorch, models are exported into the open ONNX standard. Modern browsers execute these mathematical graphs using WebAssembly (WASM) at near-native C++ performance."
+    q: "Is my data private when using these tools?",
+    a: "Yes, 100%. Because the model runs directly inside your web browser, none of your inputs or predictions are ever sent across the network or stored in a database."
   },
   {
-    q: "Can new models be added to this universe easily?",
-    a: "Yes! Using our modular Hub-and-Spoke structure, each trained model is isolated into its own dedicated spoke route, sharing the same lightweight global design system."
+    q: "How often are new models added?",
+    a: "New models are trained in Jupyter Lab and deployed as dedicated pages on this site regularly."
   }
 ];
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
-    "@type": "Question",
-    "name": faq.q,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": faq.a
-    }
-  }))
-};
 ---
 
 <Layout 
-  title="Welcome to my Universe | Data Science & Machine Learning Hub"
-  description="Explore my Universe of Data Science, Machine Learning models, and instant in-browser predictive tools powered by ONNX and WebAssembly."
+  title="Universe.ds | Machine Learning & Data Science Models Hub"
+  description="Explore machine learning models running directly and privately inside your web browser."
 >
-  <!-- Inject FAQ Schema for SEO -->
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-
-  <!-- Hero Section -->
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-12 text-center">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border-subtle)] bg-[var(--surface-card)] text-xs font-medium text-[var(--text-muted)] mb-6">
-      <span>Data Science • Machine Learning • Client-Side Models</span>
-    </div>
-
-    <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 text-[var(--text-main)]">
+  <!-- Hero Section (Clean, Simple, No Flashy Lights) -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 pt-16 pb-12 text-center">
+    <span class="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400 block mb-3">
+      Data Science & Machine Learning Hub
+    </span>
+    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--text-main)] mb-4">
       Welcome to my Universe
     </h1>
-
-    <p class="max-w-2xl mx-auto text-sm sm:text-base text-[var(--text-muted)] leading-relaxed mb-8">
-      A collection of machine learning models and predictive tools running privately and instantly in your web browser.
+    <p class="max-w-xl mx-auto text-sm sm:text-base text-[var(--text-muted)] leading-relaxed mb-8">
+      A collection of machine learning models running privately and client-side in your browser with zero latency.
     </p>
 
-    <div class="flex flex-wrap items-center justify-center gap-3">
+    <div class="flex items-center justify-center gap-3">
       <a 
         href="/burnout-predictor/" 
-        class="px-5 py-2.5 rounded-lg font-semibold text-white bg-purple-700 hover:bg-purple-800 transition shadow-sm text-sm"
+        class="px-5 py-2.5 rounded-xl font-semibold text-white bg-purple-700 hover:bg-purple-800 transition shadow-sm text-sm"
       >
-        Student Burnout Predictor →
+        Open Burnout Predictor →
       </a>
       <a 
-        href="#lab" 
-        class="px-5 py-2.5 rounded-lg font-medium border border-[var(--border-subtle)] bg-[var(--surface)] hover:bg-[var(--surface-card)] text-sm transition"
+        href="#models-list" 
+        class="px-5 py-2.5 rounded-xl font-medium border border-[var(--border-subtle)] bg-[var(--surface)] hover:bg-[var(--surface-card)] text-sm transition"
       >
-        Property Valuation Lab
+        View All Models
       </a>
     </div>
-
-    <!-- Live Metrics Counter Strip -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16 pt-8 border-t border-[var(--border-subtle)]">
-      <div class="p-4 rounded-xl bg-[var(--surface-card)] border border-[var(--border-subtle)]">
-        <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400">0 ms</div>
-        <div class="text-xs text-[var(--text-muted)] mt-1">Server Cold Start</div>
-      </div>
-      <div class="p-4 rounded-xl bg-[var(--surface-card)] border border-[var(--border-subtle)]">
-        <div class="text-2xl sm:text-3xl font-extrabold text-purple-400">100%</div>
-        <div class="text-xs text-[var(--text-muted)] mt-1">Client-Side Privacy</div>
-      </div>
-      <div class="p-4 rounded-xl bg-[var(--surface-card)] border border-[var(--border-subtle)]">
-        <div class="text-2xl sm:text-3xl font-extrabold text-indigo-400">ONNX</div>
-        <div class="text-xs text-[var(--text-muted)] mt-1">Universal Runtime</div>
-      </div>
-      <div class="p-4 rounded-xl bg-[var(--surface-card)] border border-[var(--border-subtle)]">
-        <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400">$0 / mo</div>
-        <div class="text-xs text-[var(--text-muted)] mt-1">Hosting Overhead</div>
-      </div>
-    </div>
   </section>
 
-  <!-- Interactive Lab Section (Tool Above the Fold / Accessible) -->
-  <section id="lab" class="max-w-3xl mx-auto px-4 sm:px-6 py-12 scroll-mt-16">
-    <div class="p-6 sm:p-8 rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface)] shadow-sm">
-      <div class="flex items-center justify-between mb-4 border-b border-[var(--border-subtle)] pb-4">
-        <div>
-          <span class="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400">Sample Regression Tool</span>
-          <h2 class="text-xl sm:text-2xl font-bold mt-0.5">Property Valuation Model</h2>
-        </div>
-        <span class="px-2.5 py-1 text-xs rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-semibold">
-          Ready
-        </span>
+  <!-- Models Grid (Each model clicks to its own dedicated page) -->
+  <section id="models-list" class="max-w-4xl mx-auto px-4 sm:px-6 py-10 scroll-mt-14">
+    <div class="border-b border-[var(--border-subtle)] pb-4 mb-6 flex items-center justify-between">
+      <div>
+        <h2 class="text-xl font-bold text-[var(--text-main)]">Machine Learning Models</h2>
+        <p class="text-xs text-[var(--text-muted)] mt-0.5">Select any model to open its dedicated page</p>
       </div>
-
-      <p class="text-sm text-[var(--text-muted)] mb-8">
-        Simulate an in-browser predictive regression model. Adjust the inputs below to calculate real-time estimated valuation with instant statistical confidence intervals.
-      </p>
-
-      <form id="predictor-form" class="grid grid-cols-1 sm:grid-cols-2 gap-6" onsubmit="event.preventDefault();">
-        <div>
-          <label for="feature-area" class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">
-            Surface Area (sq ft)
-          </label>
-          <input 
-            type="number" 
-            id="feature-area" 
-            value="1850" 
-            min="300" 
-            max="10000" 
-            class="w-full px-4 py-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)] text-[var(--text-main)] focus:outline-none focus:ring-2 focus:ring-purple-500 transition font-mono text-sm"
-          />
-        </div>
-
-        <div>
-          <label for="feature-quality" class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">
-            Build Quality Index (1 - 10)
-          </label>
-          <input 
-            type="range" 
-            id="feature-quality" 
-            min="1" 
-            max="10" 
-            value="8" 
-            class="w-full h-2 bg-[var(--border-subtle)] rounded-lg appearance-none cursor-pointer accent-purple-500 mt-3"
-          />
-          <div class="flex justify-between text-xs text-[var(--text-muted)] mt-1 font-mono">
-            <span>1 (Basic)</span>
-            <span id="quality-display" class="text-purple-400 font-bold">8</span>
-            <span>10 (Premium)</span>
-          </div>
-        </div>
-
-        <div>
-          <label for="feature-age" class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">
-            Structure Age (Years)
-          </label>
-          <input 
-            type="number" 
-            id="feature-age" 
-            value="5" 
-            min="0" 
-            max="100" 
-            class="w-full px-4 py-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)] text-[var(--text-main)] focus:outline-none focus:ring-2 focus:ring-purple-500 transition font-mono text-sm"
-          />
-        </div>
-
-        <div>
-          <label for="feature-location" class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">
-            Location Tier
-          </label>
-          <select 
-            id="feature-location" 
-            class="w-full px-4 py-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)] text-[var(--text-main)] focus:outline-none focus:ring-2 focus:ring-purple-500 transition text-sm cursor-pointer"
-          >
-            <option value="1.35">Metro Core (Tier 1)</option>
-            <option value="1.15" selected>Urban High-Growth (Tier 2)</option>
-            <option value="0.95">Suburban Standard (Tier 3)</option>
-          </select>
-        </div>
-
-        <div class="sm:col-span-2 pt-2">
-          <button 
-            type="button" 
-            id="calculate-btn"
-            class="w-full py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 shadow-md transition cursor-pointer flex items-center justify-center gap-2"
-          >
-            <span>Run In-Browser Prediction</span>
-            <span>⚡</span>
-          </button>
-        </div>
-      </form>
-
-      <!-- Prediction Output Box -->
-      <div id="prediction-output" class="mt-8 p-6 rounded-xl border border-purple-500/30 bg-purple-500/5 transition-all">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <span class="text-xs uppercase tracking-wider font-semibold text-[var(--text-muted)]">Estimated Model Output</span>
-            <div id="output-val" class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 font-mono mt-1">
-              $412,850
-            </div>
-          </div>
-          <div class="sm:text-right">
-            <span class="text-xs uppercase tracking-wider font-semibold text-[var(--text-muted)]">Inference Latency</span>
-            <div class="text-xl font-bold text-emerald-400 font-mono mt-1">
-              &lt; 1.2 ms (WASM)
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Model Hub Showcase (Hub & Spoke Pattern) -->
-  <section id="showcase" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 scroll-mt-20">
-    <div class="text-center max-w-2xl mx-auto mb-12">
-      <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Model Universe Hub</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-1 mb-4">
-        Specialized Machine Learning Spokes
-      </h2>
-      <p class="text-sm sm:text-base text-[var(--text-muted)]">
-        Each specialized model runs in isolation on its own high-speed edge page without taxing your CPU or backend servers.
-      </p>
+      <span class="text-xs text-[var(--text-muted)] font-mono">4 Models</span>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {models.map(model => (
-        <div class="p-6 rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-card)] hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-3">
-              <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
-                {model.category}
-              </span>
-              <span class="text-xs font-mono text-[var(--text-muted)]">
-                {model.badge}
-              </span>
-            </div>
-            <h3 class="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
-              {model.title}
-            </h3>
-            <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-6">
-              {model.description}
-            </p>
-          </div>
-
-          <div class="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between">
-            <span class="text-xs font-mono text-[var(--text-muted)]">
-              {model.framework}
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      {models.map(m => (
+        <a 
+          href={m.route} 
+          class="block p-6 rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface)] hover:border-purple-500 hover:shadow-sm transition group"
+        >
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${m.badgeClass}`}>
+              {m.badge}
             </span>
-            <a 
-              href={model.route} 
-              class="text-xs font-semibold text-purple-400 hover:text-cyan-400 flex items-center gap-1 transition-colors"
-            >
-              <span>Explore Spoke</span>
-              <span>→</span>
-            </a>
+            <span class="text-xs text-[var(--text-muted)] group-hover:text-purple-600 dark:group-hover:text-purple-400 font-medium transition">
+              {m.isLive ? "Launch Tool →" : "Details →"}
+            </span>
           </div>
-        </div>
+
+          <h3 class="text-base font-bold text-[var(--text-main)] mb-1.5 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition">
+            {m.title}
+          </h3>
+
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed mb-4">
+            {m.description}
+          </p>
+
+          <div class="flex flex-wrap gap-1.5 pt-3 border-t border-[var(--border-subtle)]">
+            {m.tags.map(t => (
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[var(--surface-card)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
+                {t}
+              </span>
+            ))}
+          </div>
+        </a>
       ))}
     </div>
   </section>
 
-  <!-- Technical Architecture Specs -->
-  <section id="architecture" class="max-w-5xl mx-auto px-4 sm:px-6 py-16 scroll-mt-20">
-    <div class="p-8 rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-card)]">
-      <span class="text-xs font-bold uppercase tracking-wider text-purple-400">Engineering Blueprint</span>
-      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mt-1 mb-6">
-        The Zero-Server Pipeline: From Jupyter Lab to Cloudflare Edge
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface)]">
-          <div class="text-xl font-black text-purple-400 mb-2">01</div>
-          <h3 class="font-bold mb-1">Train & Export</h3>
-          <p class="text-xs text-[var(--text-muted)] leading-relaxed">
-            Models are trained in Jupyter Lab with Scikit-Learn or PyTorch, then serialized into open ONNX computational graph binaries.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface)]">
-          <div class="text-xl font-black text-cyan-400 mb-2">02</div>
-          <h3 class="font-bold mb-1">WebAssembly Runtime</h3>
-          <p class="text-xs text-[var(--text-muted)] leading-relaxed">
-            The browser loads `onnxruntime-web` to execute the mathematical graph directly using CPU threads with sub-2ms latency.
-          </p>
-        </div>
-
-        <div class="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface)]">
-          <div class="text-xl font-black text-indigo-400 mb-2">03</div>
-          <h3 class="font-bold mb-1">Cloudflare Edge</h3>
-          <p class="text-xs text-[var(--text-muted)] leading-relaxed">
-            All static assets, scripts, and models are served from 300+ global Cloudflare edge locations with instantaneous worldwide delivery.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Frequently Asked Questions (FAQ) Section -->
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
-    <div class="text-center mb-10">
-      <span class="text-xs font-bold uppercase tracking-wider text-purple-400">Architecture & FAQs</span>
-      <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mt-1">
-        Frequently Asked Questions
-      </h2>
-    </div>
-
+  <!-- Clean FAQ Section -->
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-12 border-t border-[var(--border-subtle)] mt-8">
+    <h2 class="text-lg font-bold text-[var(--text-main)] mb-6 text-center">Frequently Asked Questions</h2>
     <div class="space-y-4">
       {faqs.map(faq => (
-        <div class="p-6 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)]">
-          <h3 class="text-base sm:text-lg font-bold mb-2 text-[var(--text-main)]">
-            {faq.q}
-          </h3>
-          <p class="text-sm text-[var(--text-muted)] leading-relaxed">
-            {faq.a}
-          </p>
+        <div class="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)]">
+          <h3 class="font-semibold text-sm text-[var(--text-main)] mb-1">{faq.q}</h3>
+          <p class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">{faq.a}</p>
         </div>
       ))}
     </div>
   </section>
-
-  <!-- Client-side Interactive Script for the Prediction Lab -->
-  <script is:inline>
-    const areaInput = document.getElementById('feature-area');
-    const qualityInput = document.getElementById('feature-quality');
-    const qualityDisplay = document.getElementById('quality-display');
-    const ageInput = document.getElementById('feature-age');
-    const locationInput = document.getElementById('feature-location');
-    const outputVal = document.getElementById('output-val');
-    const calculateBtn = document.getElementById('calculate-btn');
-
-    if (qualityInput && qualityDisplay) {
-      qualityInput.addEventListener('input', (e) => {
-        qualityDisplay.textContent = e.target.value;
-      });
-    }
-
-    function calculatePrediction() {
-      const area = parseFloat(areaInput.value) || 1500;
-      const quality = parseFloat(qualityInput.value) || 5;
-      const age = parseFloat(ageInput.value) || 10;
-      const locationMultiplier = parseFloat(locationInput.value) || 1.0;
-
-      // Mathematical regression formula simulating trained model weights
-      // Base: $85,000 + ($165 * area) + ($14,500 * quality) - ($1,250 * age) * locationFactor
-      let rawEstimate = (85000 + (area * 165) + (quality * 14500) - (age * 1250)) * locationMultiplier;
-      rawEstimate = Math.max(50000, Math.round(rawEstimate / 50) * 50);
-
-      if (outputVal) {
-        outputVal.textContent = '$' + rawEstimate.toLocaleString('en-US');
-      }
-    }
-
-    if (calculateBtn) {
-      calculateBtn.addEventListener('click', calculatePrediction);
-    }
-  </script>
 </Layout>
