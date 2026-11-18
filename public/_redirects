@@ -1,0 +1,3 @@
+# Edge 301 Redirects for Cloudflare Pages (Dual slash format to prevent 404 / noindex traps)
+/sitemap.xml /sitemap-index.xml 301
+/sitemap.xml/ /sitemap-index.xml 301

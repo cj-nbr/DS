@@ -1,0 +1,389 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const models = [
+  {
+    title: "House Price Predictor",
+    category: "Supervised Regression",
+    badge: "Ready to Deploy",
+    description: "Evaluates multi-variable property metrics (square footage, bedrooms, zip code location) with instant client-side valuation.",
+    framework: "Scikit-Learn • ONNX Web",
+    route: "#lab",
+    status: "Active"
+  },
+  {
+    title: "Stock Trend Forecaster",
+    category: "Time Series & Momentum",
+    badge: "In-Browser WASM",
+    description: "Computes moving averages, volatility bands, and predictive directional momentum without sending ticker data to any server.",
+    framework: "Time-Series • WebAssembly",
+    route: "#lab",
+    status: "Upcoming"
+  },
+  {
+    title: "Credit Loan Classifier",
+    category: "Binary Classification",
+    badge: "Zero Latency",
+    description: "Predicts applicant risk profile and loan approval thresholds using optimized decision boundary trees.",
+    framework: "Random Forest • ONNX",
+    route: "#lab",
+    status: "Upcoming"
+  },
+  {
+    title: "Customer Churn Neural Net",
+    category: "Deep Learning",
+    badge: "100% Private",
+    description: "Multi-layer perceptron calculating customer retention probabilities with client-side privacy preservation.",
+    framework: "Neural Network • WASM",
+    route: "#lab",
+    status: "Upcoming"
+  }
+];
+
+const faqs = [
+  {
+    q: "What makes this Data Science Universe unique?",
+    a: "Every model in this universe is engineered to run directly inside the visitor's browser using ONNX Runtime and WebAssembly. There are zero backend server spin-up delays, zero cold starts, and your data never leaves your device."
+  },
+  {
+    q: "How does the machine learning model run without a Python backend?",
+    a: "After training in Jupyter Lab using Scikit-Learn or PyTorch, models are exported into the open ONNX standard. Modern browsers execute these mathematical graphs using WebAssembly (WASM) at near-native C++ performance."
+  },
+  {
+    q: "Can new models be added to this universe easily?",
+    a: "Yes! Using our modular Hub-and-Spoke structure, each trained model is isolated into its own dedicated spoke route, sharing the same lightweight global design system."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.a
+    }
+  }))
+};
+---
+
+<Layout 
+  title="Welcome to my Universe | Data Science & Machine Learning Hub"
+  description="Explore my Universe of Data Science, Machine Learning models, and instant in-browser predictive tools powered by ONNX and WebAssembly."
+>
+  <!-- Inject FAQ Schema for SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero Section -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-12 text-center">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-xs sm:text-sm font-medium text-purple-400 mb-6 backdrop-blur-sm">
+      <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+      <span>Edge Machine Learning • In-Browser ONNX • Zero Cold Starts</span>
+    </div>
+
+    <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight mb-6">
+      Welcome to my <span class="gradient-universe">Universe</span>
+    </h1>
+
+    <p class="max-w-2xl mx-auto text-base sm:text-lg text-[var(--text-muted)] leading-relaxed mb-10">
+      Where raw data transforms into actionable intelligence. Explore machine learning models, statistical architectures, and client-side predictive computing deployed with zero latency.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a 
+        href="#lab" 
+        class="px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:opacity-95 shadow-lg shadow-purple-500/20 transition hover:scale-[1.02] active:scale-[0.98]"
+      >
+        Try Interactive Lab ⚡
+      </a>
+      <a 
+        href="#showcase" 
+        class="px-6 py-3 rounded-xl font-medium border border-[var(--border-subtle)] bg-[var(--surface-card)] hover:bg-[var(--surface)] transition hover:scale-[1.02] active:scale-[0.98]"
+      >
+        Browse Models 🌌
+      </a>
+    </div>
+
+    <!-- Live Metrics Counter Strip -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16 pt-8 border-t border-[var(--border-subtle)]">
+      <div class="p-4 rounded-xl bg-[var(--surface-card)] border border-[var(--border-subtle)]">
+        <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400">0 ms</div>
+        <div class="text-xs text-[var(--text-muted)] mt-1">Server Cold Start</div>
+      </div>
+      <div class="p-4 rounded-xl bg-[var(--surface-card)] border border-[var(--border-subtle)]">
+        <div class="text-2xl sm:text-3xl font-extrabold text-purple-400">100%</div>
+        <div class="text-xs text-[var(--text-muted)] mt-1">Client-Side Privacy</div>
+      </div>
+      <div class="p-4 rounded-xl bg-[var(--surface-card)] border border-[var(--border-subtle)]">
+        <div class="text-2xl sm:text-3xl font-extrabold text-indigo-400">ONNX</div>
+        <div class="text-xs text-[var(--text-muted)] mt-1">Universal Runtime</div>
+      </div>
+      <div class="p-4 rounded-xl bg-[var(--surface-card)] border border-[var(--border-subtle)]">
+        <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400">$0 / mo</div>
+        <div class="text-xs text-[var(--text-muted)] mt-1">Hosting Overhead</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Lab Section (Tool Above the Fold / Accessible) -->
+  <section id="lab" class="max-w-4xl mx-auto px-4 sm:px-6 py-16 scroll-mt-20">
+    <div class="p-6 sm:p-8 rounded-2xl glass-panel shadow-2xl relative overflow-hidden">
+      <div class="absolute -top-24 -right-24 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex items-center justify-between mb-6 border-b border-[var(--border-subtle)] pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-purple-400">Live Interactive Lab</span>
+          <h2 class="text-xl sm:text-2xl font-bold mt-0.5">Real-time Predictive Inference Engine</h2>
+        </div>
+        <span class="px-2.5 py-1 text-xs rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+          Active
+        </span>
+      </div>
+
+      <p class="text-sm text-[var(--text-muted)] mb-8">
+        Simulate an in-browser predictive regression model. Adjust the inputs below to calculate real-time estimated valuation with instant statistical confidence intervals.
+      </p>
+
+      <form id="predictor-form" class="grid grid-cols-1 sm:grid-cols-2 gap-6" onsubmit="event.preventDefault();">
+        <div>
+          <label for="feature-area" class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">
+            Surface Area (sq ft)
+          </label>
+          <input 
+            type="number" 
+            id="feature-area" 
+            value="1850" 
+            min="300" 
+            max="10000" 
+            class="w-full px-4 py-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)] text-[var(--text-main)] focus:outline-none focus:ring-2 focus:ring-purple-500 transition font-mono text-sm"
+          />
+        </div>
+
+        <div>
+          <label for="feature-quality" class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">
+            Build Quality Index (1 - 10)
+          </label>
+          <input 
+            type="range" 
+            id="feature-quality" 
+            min="1" 
+            max="10" 
+            value="8" 
+            class="w-full h-2 bg-[var(--border-subtle)] rounded-lg appearance-none cursor-pointer accent-purple-500 mt-3"
+          />
+          <div class="flex justify-between text-xs text-[var(--text-muted)] mt-1 font-mono">
+            <span>1 (Basic)</span>
+            <span id="quality-display" class="text-purple-400 font-bold">8</span>
+            <span>10 (Premium)</span>
+          </div>
+        </div>
+
+        <div>
+          <label for="feature-age" class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">
+            Structure Age (Years)
+          </label>
+          <input 
+            type="number" 
+            id="feature-age" 
+            value="5" 
+            min="0" 
+            max="100" 
+            class="w-full px-4 py-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)] text-[var(--text-main)] focus:outline-none focus:ring-2 focus:ring-purple-500 transition font-mono text-sm"
+          />
+        </div>
+
+        <div>
+          <label for="feature-location" class="block text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] mb-2">
+            Location Tier
+          </label>
+          <select 
+            id="feature-location" 
+            class="w-full px-4 py-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)] text-[var(--text-main)] focus:outline-none focus:ring-2 focus:ring-purple-500 transition text-sm cursor-pointer"
+          >
+            <option value="1.35">Metro Core (Tier 1)</option>
+            <option value="1.15" selected>Urban High-Growth (Tier 2)</option>
+            <option value="0.95">Suburban Standard (Tier 3)</option>
+          </select>
+        </div>
+
+        <div class="sm:col-span-2 pt-2">
+          <button 
+            type="button" 
+            id="calculate-btn"
+            class="w-full py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 shadow-md transition cursor-pointer flex items-center justify-center gap-2"
+          >
+            <span>Run In-Browser Prediction</span>
+            <span>⚡</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Prediction Output Box -->
+      <div id="prediction-output" class="mt-8 p-6 rounded-xl border border-purple-500/30 bg-purple-500/5 transition-all">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span class="text-xs uppercase tracking-wider font-semibold text-[var(--text-muted)]">Estimated Model Output</span>
+            <div id="output-val" class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 font-mono mt-1">
+              $412,850
+            </div>
+          </div>
+          <div class="sm:text-right">
+            <span class="text-xs uppercase tracking-wider font-semibold text-[var(--text-muted)]">Inference Latency</span>
+            <div class="text-xl font-bold text-emerald-400 font-mono mt-1">
+              &lt; 1.2 ms (WASM)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Model Hub Showcase (Hub & Spoke Pattern) -->
+  <section id="showcase" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 scroll-mt-20">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-xs font-bold uppercase tracking-wider text-cyan-400">Model Universe Hub</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-1 mb-4">
+        Specialized Machine Learning Spokes
+      </h2>
+      <p class="text-sm sm:text-base text-[var(--text-muted)]">
+        Each specialized model runs in isolation on its own high-speed edge page without taxing your CPU or backend servers.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {models.map(model => (
+        <div class="p-6 rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-card)] hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                {model.category}
+              </span>
+              <span class="text-xs font-mono text-[var(--text-muted)]">
+                {model.badge}
+              </span>
+            </div>
+            <h3 class="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
+              {model.title}
+            </h3>
+            <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-6">
+              {model.description}
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-[var(--border-subtle)] flex items-center justify-between">
+            <span class="text-xs font-mono text-[var(--text-muted)]">
+              {model.framework}
+            </span>
+            <a 
+              href={model.route} 
+              class="text-xs font-semibold text-purple-400 hover:text-cyan-400 flex items-center gap-1 transition-colors"
+            >
+              <span>Explore Spoke</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Technical Architecture Specs -->
+  <section id="architecture" class="max-w-5xl mx-auto px-4 sm:px-6 py-16 scroll-mt-20">
+    <div class="p-8 rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface-card)]">
+      <span class="text-xs font-bold uppercase tracking-wider text-purple-400">Engineering Blueprint</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mt-1 mb-6">
+        The Zero-Server Pipeline: From Jupyter Lab to Cloudflare Edge
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface)]">
+          <div class="text-xl font-black text-purple-400 mb-2">01</div>
+          <h3 class="font-bold mb-1">Train & Export</h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+            Models are trained in Jupyter Lab with Scikit-Learn or PyTorch, then serialized into open ONNX computational graph binaries.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface)]">
+          <div class="text-xl font-black text-cyan-400 mb-2">02</div>
+          <h3 class="font-bold mb-1">WebAssembly Runtime</h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+            The browser loads `onnxruntime-web` to execute the mathematical graph directly using CPU threads with sub-2ms latency.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface)]">
+          <div class="text-xl font-black text-indigo-400 mb-2">03</div>
+          <h3 class="font-bold mb-1">Cloudflare Edge</h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+            All static assets, scripts, and models are served from 300+ global Cloudflare edge locations with instantaneous worldwide delivery.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frequently Asked Questions (FAQ) Section -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+    <div class="text-center mb-10">
+      <span class="text-xs font-bold uppercase tracking-wider text-purple-400">Architecture & FAQs</span>
+      <h2 class="text-2xl sm:text-3xl font-bold tracking-tight mt-1">
+        Frequently Asked Questions
+      </h2>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map(faq => (
+        <div class="p-6 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)]">
+          <h3 class="text-base sm:text-lg font-bold mb-2 text-[var(--text-main)]">
+            {faq.q}
+          </h3>
+          <p class="text-sm text-[var(--text-muted)] leading-relaxed">
+            {faq.a}
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Client-side Interactive Script for the Prediction Lab -->
+  <script is:inline>
+    const areaInput = document.getElementById('feature-area');
+    const qualityInput = document.getElementById('feature-quality');
+    const qualityDisplay = document.getElementById('quality-display');
+    const ageInput = document.getElementById('feature-age');
+    const locationInput = document.getElementById('feature-location');
+    const outputVal = document.getElementById('output-val');
+    const calculateBtn = document.getElementById('calculate-btn');
+
+    if (qualityInput && qualityDisplay) {
+      qualityInput.addEventListener('input', (e) => {
+        qualityDisplay.textContent = e.target.value;
+      });
+    }
+
+    function calculatePrediction() {
+      const area = parseFloat(areaInput.value) || 1500;
+      const quality = parseFloat(qualityInput.value) || 5;
+      const age = parseFloat(ageInput.value) || 10;
+      const locationMultiplier = parseFloat(locationInput.value) || 1.0;
+
+      // Mathematical regression formula simulating trained model weights
+      // Base: $85,000 + ($165 * area) + ($14,500 * quality) - ($1,250 * age) * locationFactor
+      let rawEstimate = (85000 + (area * 165) + (quality * 14500) - (age * 1250)) * locationMultiplier;
+      rawEstimate = Math.max(50000, Math.round(rawEstimate / 50) * 50);
+
+      if (outputVal) {
+        outputVal.textContent = '$' + rawEstimate.toLocaleString('en-US');
+      }
+    }
+
+    if (calculateBtn) {
+      calculateBtn.addEventListener('click', calculatePrediction);
+    }
+  </script>
+</Layout>

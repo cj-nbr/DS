@@ -1,0 +1,30 @@
+{
+  "name": "universe-ds",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@tailwindcss/postcss": "^4.3.0",
+    "astro": "^6.4.4",
+    "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@tailwindcss/typography": "^0.5.20"
+  },
+  "overrides": {
+    "rollup": "4.61.1"
+  },
+  "allowScripts": {
+    "esbuild@0.27.7": true,
+    "sharp@0.34.5": true
+  }
+}
