@@ -3,8 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 
 const faqs = [
   {
-    q: "How does this Burnout Assessment work?",
-    a: "This tool analyzes the balance between your study habits, Generative AI usage, exam stress, and academic performance using a trained machine learning model running privately in your browser."
+    q: "What does this Burnout Risk score mean?",
+    a: "The score classifies your academic fatigue into Low, Medium, or High risk based on your AI usage, study hours, exam stress, and skill retention."
   },
   {
     q: "Is my personal data kept private?",
@@ -20,7 +20,7 @@ const faqs = [
   }
 ];
 
-const pageTitle = "Student Burnout Risk Predictor | Clean & Private Assessment";
+const pageTitle = "Student Burnout Risk Predictor | Machine Learning Assessment";
 const pageDescription = "Assess your academic stress and AI study balance with a clean, private, in-browser machine learning assessment tool.";
 ---
 
@@ -38,20 +38,20 @@ const pageDescription = "Assess your academic stress and AI study balance with a
       </ol>
     </nav>
 
-    <!-- Header: Clean, Human, Calm (No flashy lights) -->
+    <!-- Header: Clean, Human, Simple -->
     <header class="mb-8 border-b border-[var(--border-subtle)] pb-6">
       <span class="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400">
-        Academic Wellness Assessment
+        Academic Wellness Model
       </span>
-      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-[var(--text-main)] mt-1.5 mb-2.5">
-        Student Burnout & Study Balance Predictor
+      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-[var(--text-main)] mt-1 mb-2">
+        Student Burnout Risk Predictor
       </h1>
       <p class="text-sm sm:text-base text-[var(--text-muted)] leading-relaxed">
-        Understand how your study hours, AI habits, and exam stress interact. Adjust the sliders below to get a clear, personalized assessment and practical advice.
+        Adjust your study habits and stress levels below. The model will calculate whether your burnout risk is <strong>Low</strong>, <strong>Medium</strong>, or <strong>High</strong> with personalized guidance.
       </p>
     </header>
 
-    <!-- Interactive Card: Clean & Grounded -->
+    <!-- Interactive Card -->
     <div class="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface)] p-6 sm:p-8 shadow-sm">
       <form id="burnout-form" class="space-y-6" onsubmit="event.preventDefault();">
         
@@ -60,15 +60,15 @@ const pageDescription = "Assess your academic stress and AI study balance with a
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <label for="gpa" class="text-xs font-semibold text-[var(--text-main)]">
-                Current / Last Semester GPA
+                Current GPA
               </label>
-              <span class="text-xs font-mono text-[var(--text-muted)]">1.0 – 4.0</span>
+              <span class="text-xs text-[var(--text-muted)]">Scale 1.0 – 4.0</span>
             </div>
             <input 
               type="number" 
               id="gpa" 
-              value="3.25" 
-              step="0.01" 
+              value="3.20" 
+              step="0.05" 
               min="1.0" 
               max="4.0" 
               class="w-full px-3.5 py-2.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--surface-card)] text-[var(--text-main)] text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition font-mono"
@@ -78,9 +78,9 @@ const pageDescription = "Assess your academic stress and AI study balance with a
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <label for="retention" class="text-xs font-semibold text-[var(--text-main)]">
-                Skill Retention Score: <span id="retention-display" class="font-bold text-purple-600 dark:text-purple-400 font-mono">75</span>%
+                Skill Retention: <span id="retention-display" class="font-bold text-purple-600 dark:text-purple-400 font-mono">75</span>%
               </label>
-              <span class="text-xs font-mono text-[var(--text-muted)]">0 – 100</span>
+              <span class="text-xs text-[var(--text-muted)]">0 – 100%</span>
             </div>
             <input 
               type="range" 
@@ -98,7 +98,7 @@ const pageDescription = "Assess your academic stress and AI study balance with a
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <label for="genai-hours" class="text-xs font-semibold text-[var(--text-main)]">
-                AI Study Tools (ChatGPT, Claude): <span id="genai-display" class="font-bold text-purple-600 dark:text-purple-400 font-mono">8</span> hrs/wk
+                AI Study Hours (ChatGPT, Claude): <span id="genai-display" class="font-bold text-purple-600 dark:text-purple-400 font-mono">8</span> hrs/wk
               </label>
             </div>
             <input 
@@ -109,13 +109,13 @@ const pageDescription = "Assess your academic stress and AI study balance with a
               value="8" 
               class="w-full h-2 bg-[var(--border-subtle)] rounded-lg appearance-none cursor-pointer accent-purple-600 mt-2"
             />
-            <span class="text-[11px] text-[var(--text-muted)] block mt-1">Time spent prompting, debugging, and reading AI summaries.</span>
+            <span class="text-[11px] text-[var(--text-muted)] block mt-1">Hours spent prompting, debugging, and reading AI summaries.</span>
           </div>
 
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <label for="study-hours" class="text-xs font-semibold text-[var(--text-main)]">
-                Traditional Study (Books, Practice): <span id="study-display" class="font-bold text-purple-600 dark:text-purple-400 font-mono">14</span> hrs/wk
+                Traditional Study (Books, Notes): <span id="study-display" class="font-bold text-purple-600 dark:text-purple-400 font-mono">14</span> hrs/wk
               </label>
             </div>
             <input 
@@ -126,7 +126,7 @@ const pageDescription = "Assess your academic stress and AI study balance with a
               value="14" 
               class="w-full h-2 bg-[var(--border-subtle)] rounded-lg appearance-none cursor-pointer accent-purple-600 mt-2"
             />
-            <span class="text-[11px] text-[var(--text-muted)] block mt-1">Time spent writing notes, solving problems, and textbook reading.</span>
+            <span class="text-[11px] text-[var(--text-muted)] block mt-1">Hours spent solving problems manually and reading textbooks.</span>
           </div>
         </div>
 
@@ -148,14 +148,14 @@ const pageDescription = "Assess your academic stress and AI study balance with a
             />
             <div class="flex justify-between text-[11px] text-[var(--text-muted)] mt-1 font-mono">
               <span>1 (Independent)</span>
-              <span>10 (Cannot study without it)</span>
+              <span>10 (Full Reliance)</span>
             </div>
           </div>
 
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <label for="anxiety" class="text-xs font-semibold text-[var(--text-main)]">
-                Exam Anxiety: <span id="anxiety-display" class="font-bold text-purple-600 dark:text-purple-400 font-mono">5</span> / 10
+                Exam Anxiety Level: <span id="anxiety-display" class="font-bold text-purple-600 dark:text-purple-400 font-mono">5</span> / 10
               </label>
             </div>
             <input 
@@ -168,55 +168,69 @@ const pageDescription = "Assess your academic stress and AI study balance with a
             />
             <div class="flex justify-between text-[11px] text-[var(--text-muted)] mt-1 font-mono">
               <span>1 (Calm)</span>
-              <span>10 (Extreme panic)</span>
+              <span>10 (Overwhelmed)</span>
             </div>
           </div>
         </div>
 
-        <!-- Predict Button -->
-        <div class="pt-3">
+        <!-- Action Button -->
+        <div class="pt-2">
           <button 
             type="button" 
             id="predict-btn"
             class="w-full py-3.5 px-6 rounded-xl font-semibold text-white bg-purple-700 hover:bg-purple-800 transition cursor-pointer flex items-center justify-center gap-2 shadow-sm text-sm"
           >
-            <span>Calculate My Burnout Risk</span>
+            <span>Update Assessment</span>
             <span>→</span>
           </button>
         </div>
       </form>
 
-      <!-- RESULTS & PERSONALIZED ADVICE SECTION -->
+      <!-- RESULTS SECTION: CLEAR LOW / MEDIUM / HIGH BADGE & CARDS -->
       <div id="result-box" class="mt-8 pt-6 border-t border-[var(--border-subtle)]">
         
-        <!-- Result Summary Header -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-[var(--surface-card)] border border-[var(--border-subtle)]">
-          <div>
-            <span class="text-xs uppercase tracking-wider font-semibold text-[var(--text-muted)]">Your Assessment Result</span>
-            <div id="risk-title" class="text-xl sm:text-2xl font-bold mt-0.5 text-emerald-600 dark:text-emerald-400">
-              Low Burnout Risk
+        <!-- Big Visual Risk Indicator (LOW / MEDIUM / HIGH) -->
+        <div class="p-6 rounded-2xl bg-[var(--surface-card)] border border-[var(--border-subtle)] mb-6 text-center">
+          <span class="text-xs uppercase tracking-wider font-semibold text-[var(--text-muted)] block mb-2">
+            Burnout Risk Assessment Output:
+          </span>
+
+          <!-- 3-Segment Visual Meter -->
+          <div class="grid grid-cols-3 gap-2 max-w-sm mx-auto mb-4">
+            <div id="badge-low" class="py-2 rounded-lg text-xs font-bold border transition-all bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500">
+              LOW
+            </div>
+            <div id="badge-medium" class="py-2 rounded-lg text-xs font-bold border transition-all bg-[var(--surface)] text-[var(--text-muted)] border-[var(--border-subtle)] opacity-50">
+              MEDIUM
+            </div>
+            <div id="badge-high" class="py-2 rounded-lg text-xs font-bold border transition-all bg-[var(--surface)] text-[var(--text-muted)] border-[var(--border-subtle)] opacity-50">
+              HIGH
             </div>
           </div>
-          <div class="text-left sm:text-right">
-            <span class="text-xs text-[var(--text-muted)] block">Calculated privately in</span>
-            <span id="latency-text" class="text-xs font-mono font-medium text-[var(--text-main)]">1.2 ms (In-Browser ML)</span>
+
+          <!-- Primary Output Text -->
+          <div id="risk-headline" class="text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400">
+            LOW BURNOUT RISK
           </div>
+          <p id="risk-subline" class="text-xs text-[var(--text-muted)] mt-1">
+            Study habits and cognitive demands are currently well balanced.
+          </p>
         </div>
 
-        <!-- Detailed, Human Personalized Advice -->
-        <div class="mt-6 space-y-4">
-          <h3 class="text-sm font-bold uppercase tracking-wider text-[var(--text-muted)]">
-            Personalized Guidance & Action Plan:
+        <!-- Personalized Action Plan -->
+        <div class="space-y-4">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
+            Personalized Guidance & Advice:
           </h3>
 
           <!-- Advice Item 1: Overview -->
           <div class="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)]">
             <h4 class="text-sm font-semibold text-[var(--text-main)] flex items-center gap-2 mb-1">
               <span>📋</span>
-              <span id="overview-heading">Current Academic Health</span>
+              <span id="overview-heading">Academic Health Summary</span>
             </h4>
             <p id="overview-text" class="text-sm text-[var(--text-muted)] leading-relaxed">
-              Your study habits reflect a balanced, sustainable routine. Your traditional study hours provide a strong foundation, and AI is acting as an assistant rather than a crutch.
+              Your study habits reflect a balanced routine. Your traditional study hours provide a strong foundation, keeping AI as an aid rather than an outsourced brain.
             </p>
           </div>
 
@@ -227,7 +241,7 @@ const pageDescription = "Assess your academic stress and AI study balance with a
               <span id="ratio-heading">AI & Study Ratio Strategy</span>
             </h4>
             <p id="ratio-text" class="text-sm text-[var(--text-muted)] leading-relaxed">
-              Your 14 hours of independent study to 8 hours of AI gives you solid cognitive grounding. Continue doing pen-and-paper exercises before asking AI for hints.
+              Your ratio of traditional study to AI is sustainable. Continue doing pen-and-paper exercises before asking AI for hints.
             </p>
           </div>
 
@@ -235,10 +249,10 @@ const pageDescription = "Assess your academic stress and AI study balance with a
           <div class="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)]">
             <h4 class="text-sm font-semibold text-[var(--text-main)] flex items-center gap-2 mb-1">
               <span>🧠</span>
-              <span id="stress-heading">Memory Retention & Exam Strategy</span>
+              <span id="stress-heading">Retention & Exam Strategy</span>
             </h4>
             <p id="stress-text" class="text-sm text-[var(--text-muted)] leading-relaxed">
-              Your exam anxiety is moderate. To keep it low, close all AI tools 48 hours before exams and practice recalling formulas from blank sheets of paper.
+              To keep exam anxiety low, practice active recall from blank sheets of paper without AI assistance before tests.
             </p>
           </div>
         </div>
@@ -246,9 +260,9 @@ const pageDescription = "Assess your academic stress and AI study balance with a
       </div>
     </div>
 
-    <!-- Calm, Helpful Context & FAQs -->
+    <!-- FAQs -->
     <section class="mt-14 space-y-6">
-      <h2 class="text-lg font-bold text-[var(--text-main)]">Common Questions About Study Burnout</h2>
+      <h2 class="text-lg font-bold text-[var(--text-main)]">Common Questions</h2>
       <div class="space-y-4">
         {faqs.map(faq => (
           <div class="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)]">
@@ -260,7 +274,7 @@ const pageDescription = "Assess your academic stress and AI study balance with a
 
       <div class="pt-4 text-center">
         <a href="/" class="text-xs font-semibold text-purple-600 dark:text-purple-400 hover:underline">
-          ← Back to Model Hub
+          ← Back to All Models
         </a>
       </div>
     </section>
@@ -284,9 +298,12 @@ const pageDescription = "Assess your academic stress and AI study balance with a
     const retentionInput = document.getElementById('retention');
     const retentionDisplay = document.getElementById('retention-display');
 
-    // Outputs
-    const riskTitle = document.getElementById('risk-title');
-    const latencyText = document.getElementById('latency-text');
+    // Result Badges & Elements
+    const badgeLow = document.getElementById('badge-low');
+    const badgeMedium = document.getElementById('badge-medium');
+    const badgeHigh = document.getElementById('badge-high');
+    const riskHeadline = document.getElementById('risk-headline');
+    const riskSubline = document.getElementById('risk-subline');
     const overviewHeading = document.getElementById('overview-heading');
     const overviewText = document.getElementById('overview-text');
     const ratioHeading = document.getElementById('ratio-heading');
@@ -296,21 +313,23 @@ const pageDescription = "Assess your academic stress and AI study balance with a
     const predictBtn = document.getElementById('predict-btn');
 
     // Keep displays live
-    genAiInput?.addEventListener('input', e => genAiDisplay.textContent = e.target.value);
-    studyInput?.addEventListener('input', e => studyDisplay.textContent = e.target.value);
-    depInput?.addEventListener('input', e => depDisplay.textContent = e.target.value);
-    anxietyInput?.addEventListener('input', e => anxietyDisplay.textContent = e.target.value);
-    retentionInput?.addEventListener('input', e => retentionDisplay.textContent = e.target.value);
+    genAiInput?.addEventListener('input', e => { genAiDisplay.textContent = e.target.value; computeAssessment(); });
+    studyInput?.addEventListener('input', e => { studyDisplay.textContent = e.target.value; computeAssessment(); });
+    depInput?.addEventListener('input', e => { depDisplay.textContent = e.target.value; computeAssessment(); });
+    anxietyInput?.addEventListener('input', e => { anxietyDisplay.textContent = e.target.value; computeAssessment(); });
+    retentionInput?.addEventListener('input', e => { retentionDisplay.textContent = e.target.value; computeAssessment(); });
+    gpaInput?.addEventListener('input', computeAssessment);
 
-    // Initialize model quietly
+    // Initialize ONNX Model
     async function loadModel() {
       try {
         if (typeof ort !== 'undefined') {
           ort.env.wasm.numThreads = 1;
           onnxSession = await ort.InferenceSession.create(modelUrl, { executionProviders: ['wasm'] });
+          computeAssessment();
         }
       } catch (e) {
-        console.warn('Model initialized in browser fallback mode.');
+        console.warn('Model initialized in browser rule mode:', e);
       }
     }
 
@@ -322,84 +341,106 @@ const pageDescription = "Assess your academic stress and AI study balance with a
       const anxiety = parseFloat(anxietyInput.value) || 5;
       const retention = parseFloat(retentionInput.value) || 75;
 
-      const t0 = performance.now();
-      let riskClass = 1; // 0: High, 1: Low, 2: Medium
+      let riskCategory = "Low"; // "Low", "Medium", "High"
 
       if (onnxSession) {
         try {
           const tensor = new ort.Tensor('float32', Float32Array.from([gpa, genai, study, dep, anxiety, retention]), [1, 6]);
           const output = await onnxSession.run({ float_input: tensor });
           const labelTensor = output.output_label || output[Object.keys(output)[0]];
-          riskClass = Number(labelTensor.data[0]);
+          const classIdx = Number(labelTensor.data[0]);
+          
+          // In training: 0 = High, 1 = Low, 2 = Medium
+          if (classIdx === 0) riskCategory = "High";
+          else if (classIdx === 2) riskCategory = "Medium";
+          else riskCategory = "Low";
         } catch (err) {
-          riskClass = fallbackRule(gpa, genai, study, dep, anxiety, retention);
+          riskCategory = evaluateRules(gpa, genai, study, dep, anxiety, retention);
         }
       } else {
-        riskClass = fallbackRule(gpa, genai, study, dep, anxiety, retention);
+        riskCategory = evaluateRules(gpa, genai, study, dep, anxiety, retention);
       }
 
-      const elapsed = Math.max(1, (performance.now() - t0).toFixed(1));
-      latencyText.textContent = `${elapsed} ms (In-Browser ML)`;
-
-      renderHumanAdvice(riskClass, gpa, genai, study, dep, anxiety, retention);
+      renderOutput(riskCategory, gpa, genai, study, dep, anxiety, retention);
     }
 
-    function fallbackRule(gpa, genai, study, dep, anxiety, retention) {
-      if (anxiety >= 7 && dep >= 6 && genai > study) return 0; // High
-      if (anxiety <= 4 && retention >= 70 && study >= genai) return 1; // Low
-      return 2; // Medium
+    // Direct mathematical rule boundary
+    function evaluateRules(gpa, genai, study, dep, anxiety, retention) {
+      if ((anxiety >= 7 && dep >= 6) || (genai >= 20 && anxiety >= 7) || (retention <= 45 && anxiety >= 8)) {
+        return "High";
+      }
+      if (anxiety >= 5 || dep >= 5 || genai > study || retention <= 65) {
+        return "Medium";
+      }
+      return "Low";
     }
 
-    function renderHumanAdvice(risk, gpa, genai, study, dep, anxiety, retention) {
-      // 0: High, 1: Low, 2: Medium
-      if (risk === 0) {
-        riskTitle.textContent = "High Burnout Risk";
-        riskTitle.className = "text-xl sm:text-2xl font-bold mt-0.5 text-red-600 dark:text-red-400";
+    function renderOutput(risk, gpa, genai, study, dep, anxiety, retention) {
+      // Reset meter badges to muted state
+      badgeLow.className = "py-2 rounded-lg text-xs font-bold border transition-all bg-[var(--surface)] text-[var(--text-muted)] border-[var(--border-subtle)] opacity-40";
+      badgeMedium.className = "py-2 rounded-lg text-xs font-bold border transition-all bg-[var(--surface)] text-[var(--text-muted)] border-[var(--border-subtle)] opacity-40";
+      badgeHigh.className = "py-2 rounded-lg text-xs font-bold border transition-all bg-[var(--surface)] text-[var(--text-muted)] border-[var(--border-subtle)] opacity-40";
 
-        overviewHeading.textContent = "Urgent: High Cognitive Strain Detected";
-        overviewText.textContent = `You are currently experiencing high academic stress. Your high exam anxiety (${anxiety}/10) combined with ${genai} hours of AI tool usage is creating mental fatigue. Relying on AI when feeling overwhelmed often creates an 'illusion of progress' that unravels on exam day, amplifying your anxiety.`;
+      if (risk === "High") {
+        // Highlight High Badge
+        badgeHigh.className = "py-2 rounded-lg text-xs font-bold border transition-all bg-red-500/10 text-red-600 dark:text-red-400 border-red-500 opacity-100 ring-2 ring-red-500/20";
+        
+        riskHeadline.textContent = "HIGH BURNOUT RISK";
+        riskHeadline.className = "text-2xl sm:text-3xl font-extrabold text-red-600 dark:text-red-400";
+        riskSubline.textContent = "Warning: Severe study fatigue and exam anxiety detected.";
+
+        overviewHeading.textContent = "High Cognitive Strain";
+        overviewText.textContent = `Your assessment shows a High risk of burnout. Your high exam anxiety (${anxiety}/10) coupled with ${genai} hours of AI tool usage and high dependency (${dep}/10) indicates you are feeling overwhelmed. Relying on AI when stressed often gives a short-term feeling of progress that disappears under test conditions, compounding your anxiety.`;
 
         ratioHeading.textContent = "Immediate Action: Rebalance Your Study Hours";
         if (genai >= study) {
-          ratioText.textContent = `You are currently spending ${genai} hours with AI compared to only ${study} hours of independent study. We strongly recommend cutting your AI usage in half this week and dedicating those hours to writing out solutions by hand without any screen on.`;
+          ratioText.textContent = `You are currently spending ${genai} hours using AI versus only ${study} hours of traditional study. We strongly recommend reducing AI usage by 50% this week and dedicating that time to handwriting summaries and solving practice questions on paper.`;
         } else {
-          ratioText.textContent = `Even though you put in ${study} traditional study hours, your high AI dependency (${dep}/10) suggests you are relying on AI whenever you hit a difficult roadblock. Try setting a 20-minute timer to struggle with hard problems independently before asking AI for a hint.`;
+          ratioText.textContent = `Even with ${study} hours of traditional study, your high AI dependency (${dep}/10) suggests you are turning to AI whenever a problem gets tough. Set a 15-minute timer to struggle through hard problems independently before asking AI for a hint.`;
         }
 
-        stressHeading.textContent = "Exam Panic Relief Strategy";
-        stressText.textContent = `With an anxiety rating of ${anxiety}/10 and retention at ${retention}%, last-minute cramming will only cause more panic. Shift to 25-minute Pomodoro intervals. Teach concepts out loud to an empty room to prove to your brain that you own the knowledge without needing an AI crutch.`;
+        stressHeading.textContent = "Exam Stress & Memory Strategy";
+        stressText.textContent = `With anxiety at ${anxiety}/10 and retention at ${retention}%, avoid last-minute cramming. Study in 25-minute focused bursts. Explain key concepts out loud without looking at any screen to prove to yourself that you know the material.`;
 
-      } else if (risk === 2) {
-        riskTitle.textContent = "Moderate Burnout Risk";
-        riskTitle.className = "text-xl sm:text-2xl font-bold mt-0.5 text-amber-600 dark:text-amber-400";
+      } else if (risk === "Medium") {
+        // Highlight Medium Badge
+        badgeMedium.className = "py-2 rounded-lg text-xs font-bold border transition-all bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500 opacity-100 ring-2 ring-amber-500/20";
 
-        overviewHeading.textContent = "Caution: Manageable Stress Approaching Burnout";
-        overviewText.textContent = `You are holding things together, but your current workload is borderline exhausting. Your retention score (${retention}%) is decent, but your exam stress (${anxiety}/10) indicates that test periods feel intense and stressful.`;
+        riskHeadline.textContent = "MEDIUM BURNOUT RISK";
+        riskHeadline.className = "text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400";
+        riskSubline.textContent = "Notice: Manageable stress levels approaching burnout boundaries.";
+
+        overviewHeading.textContent = "Moderate Cognitive Strain";
+        overviewText.textContent = `Your assessment shows a Medium risk of burnout. You are managing your classes, but your stress markers (${anxiety}/10) and study habits suggest that exams feel tense and mentally draining.`;
 
         ratioHeading.textContent = "Optimize Your AI Leverage";
-        ratioText.textContent = `You are currently using AI for ${genai} hours and independent study for ${study} hours. Use AI strictly for generating mock quiz questions or explaining confusing paragraphs, but always close the AI tab when actually solving the problems.`;
+        ratioText.textContent = `You are spending ${genai} hours with AI and ${study} hours on independent study. Keep AI strictly for generating practice quizzes or clarifying confusing paragraphs, but close the AI tab when doing homework or practice exercises.`;
 
         stressHeading.textContent = "Proactive Exam Preparation";
-        stressText.textContent = `To lower your anxiety from ${anxiety} down to a calm state, simulate exam conditions once every weekend: no phone, no AI, strict time limit. This builds genuine test-day confidence and protects your GPA (${gpa}).`;
+        stressText.textContent = `To bring your anxiety down from ${anxiety}/10, simulate test conditions once a week: no notes, no AI, set a timer. This builds genuine test-day confidence and protects your GPA (${gpa}).`;
 
       } else {
-        riskTitle.textContent = "Low Burnout Risk";
-        riskTitle.className = "text-xl sm:text-2xl font-bold mt-0.5 text-emerald-600 dark:text-emerald-400";
+        // Highlight Low Badge
+        badgeLow.className = "py-2 rounded-lg text-xs font-bold border transition-all bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500 opacity-100 ring-2 ring-emerald-500/20";
 
-        overviewHeading.textContent = "Healthy, Sustainable Study Rhythm";
-        overviewText.textContent = `Great job! Your current academic metrics show a healthy, well-balanced student. You have healthy retention (${retention}%), manageable stress levels (${anxiety}/10), and your GPA (${gpa}) is supported by good habits.`;
+        riskHeadline.textContent = "LOW BURNOUT RISK";
+        riskHeadline.className = "text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400";
+        riskSubline.textContent = "Optimal: Healthy study balance and sustainable cognitive load.";
 
-        ratioHeading.textContent = "Keep Up This Balance";
-        ratioText.textContent = `Your ratio of ${study} traditional study hours to ${genai} AI hours is in the sweet spot. You are treating AI like a calculator—a helpful tool, rather than an outsourced brain.`;
+        overviewHeading.textContent = "Healthy Academic Routine";
+        overviewText.textContent = `Your metrics reflect a Low risk of burnout! You maintain solid retention (${retention}%), manageable stress levels (${anxiety}/10), and a healthy GPA (${gpa}) backed by balanced habits.`;
 
-        stressHeading.textContent = "Maintaining Peak Performance";
-        stressText.textContent = `Continue spacing your study sessions out across the week rather than pulling late nights. Prioritize consistent sleep before exam days; sleep consolidates the neural connections you built during study.`;
+        ratioHeading.textContent = "Maintain Your Rhythm";
+        ratioText.textContent = `Your ratio of ${study} traditional study hours to ${genai} AI hours is well-balanced. You are using AI as an accelerator rather than a replacement for thinking.`;
+
+        stressHeading.textContent = "Long-Term Retention";
+        stressText.textContent = `Continue spreading your study sessions across the week rather than pulling late nights. Good sleep is what locks in the neural connections you build while studying.`;
       }
     }
 
     predictBtn?.addEventListener('click', computeAssessment);
 
-    // Initial run
+    // Initial load
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
         loadModel();
