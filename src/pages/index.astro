@@ -3,11 +3,20 @@ import Layout from '../layouts/Layout.astro';
 
 const models = [
   {
-    title: "House Price Predictor",
+    title: "Student Burnout Risk Predictor",
+    category: "Ensemble Classification",
+    badge: "Live Model • ONNX",
+    description: "Evaluates academic fatigue, study habits, and Generative AI dependency on 49,000+ data points with instant client-side diagnosis.",
+    framework: "Random Forest • ONNX WASM",
+    route: "/burnout-predictor/",
+    status: "Active"
+  },
+  {
+    title: "House Price Valuation Engine",
     category: "Supervised Regression",
-    badge: "Ready to Deploy",
-    description: "Evaluates multi-variable property metrics (square footage, bedrooms, zip code location) with instant client-side valuation.",
-    framework: "Scikit-Learn • ONNX Web",
+    badge: "Interactive Demo",
+    description: "Evaluates multi-variable property metrics (square footage, quality index, location tier) with instant client-side valuation.",
+    framework: "Regression • In-Browser",
     route: "#lab",
     status: "Active"
   },
@@ -25,16 +34,7 @@ const models = [
     category: "Binary Classification",
     badge: "Zero Latency",
     description: "Predicts applicant risk profile and loan approval thresholds using optimized decision boundary trees.",
-    framework: "Random Forest • ONNX",
-    route: "#lab",
-    status: "Upcoming"
-  },
-  {
-    title: "Customer Churn Neural Net",
-    category: "Deep Learning",
-    badge: "100% Private",
-    description: "Multi-layer perceptron calculating customer retention probabilities with client-side privacy preservation.",
-    framework: "Neural Network • WASM",
+    framework: "Decision Trees • ONNX",
     route: "#lab",
     status: "Upcoming"
   }
@@ -93,16 +93,17 @@ const faqSchema = {
 
     <div class="flex flex-wrap items-center justify-center gap-4">
       <a 
-        href="#lab" 
-        class="px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:opacity-95 shadow-lg shadow-purple-500/20 transition hover:scale-[1.02] active:scale-[0.98]"
+        href="/burnout-predictor/" 
+        class="px-6 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:opacity-95 shadow-lg shadow-purple-500/25 transition hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2"
       >
-        Try Interactive Lab ⚡
+        <span>Launch Burnout Predictor</span>
+        <span>🧠</span>
       </a>
       <a 
-        href="#showcase" 
-        class="px-6 py-3 rounded-xl font-medium border border-[var(--border-subtle)] bg-[var(--surface-card)] hover:bg-[var(--surface)] transition hover:scale-[1.02] active:scale-[0.98]"
+        href="#lab" 
+        class="px-6 py-3.5 rounded-xl font-medium border border-[var(--border-subtle)] bg-[var(--surface-card)] hover:bg-[var(--surface)] transition hover:scale-[1.02] active:scale-[0.98]"
       >
-        Browse Models 🌌
+        Interactive Regression Lab ⚡
       </a>
     </div>
 
