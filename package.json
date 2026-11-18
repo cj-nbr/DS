@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name ds --branch main"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
@@ -18,7 +19,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
-    "@tailwindcss/typography": "^0.5.20"
+    "@tailwindcss/typography": "^0.5.20",
+    "wrangler": "^4.119.0"
   },
   "overrides": {
     "rollup": "4.61.1"
