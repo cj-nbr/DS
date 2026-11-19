@@ -38,21 +38,21 @@ const pageDescription = "Assess your academic stress and AI study balance with a
       </ol>
     </nav>
 
-    <!-- Header: Clean, Human, Simple -->
+    <!-- Header (Strict Monochrome) -->
     <header class="mb-8 border-b border-[var(--border-subtle)] pb-6">
-      <span class="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400">
-        Academic Wellness Model
+      <span class="text-xs font-mono uppercase tracking-widest text-[var(--text-muted)] block mb-1">
+        Model 01 — Wellness Assessment
       </span>
-      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-[var(--text-main)] mt-1 mb-2">
+      <h1 class="text-2xl sm:text-4xl font-black tracking-tight text-[var(--text-main)] mb-2">
         Student Burnout Risk Predictor
       </h1>
-      <p class="text-sm sm:text-base text-[var(--text-muted)] leading-relaxed">
+      <p class="text-sm text-[var(--text-muted)] leading-relaxed">
         Adjust your study habits and stress levels below. The model will calculate whether your burnout risk is <strong>Low</strong>, <strong>Medium</strong>, or <strong>High</strong> with personalized guidance.
       </p>
     </header>
 
-    <!-- Interactive Card -->
-    <div class="rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface)] p-6 sm:p-8 shadow-sm">
+    <!-- Interactive Card (Monochrome) -->
+    <div class="rounded-xl border border-[var(--border-subtle)] bg-[var(--surface)] p-6 sm:p-8 shadow-sm">
       <form id="burnout-form" class="space-y-6" onsubmit="event.preventDefault();">
         
         <!-- GPA & Retention Row -->
@@ -62,7 +62,7 @@ const pageDescription = "Assess your academic stress and AI study balance with a
               <label for="gpa" class="text-xs font-semibold text-[var(--text-main)]">
                 Current GPA
               </label>
-              <span class="text-xs text-[var(--text-muted)]">Scale 1.0 – 4.0</span>
+              <span class="text-xs font-mono text-[var(--text-muted)]">1.0 – 4.0</span>
             </div>
             <input 
               type="number" 
@@ -71,16 +71,16 @@ const pageDescription = "Assess your academic stress and AI study balance with a
               step="0.05" 
               min="1.0" 
               max="4.0" 
-              class="w-full px-3.5 py-2.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--surface-card)] text-[var(--text-main)] text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition font-mono"
+              class="w-full px-3.5 py-2.5 rounded-md border border-[var(--border-subtle)] bg-[var(--surface-card)] text-[var(--text-main)] text-sm focus:outline-none focus:border-[var(--text-main)] transition font-mono"
             />
           </div>
 
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <label for="retention" class="text-xs font-semibold text-[var(--text-main)]">
-                Skill Retention: <span id="retention-display" class="font-bold text-purple-600 dark:text-purple-400 font-mono">75</span>%
+                Skill Retention: <span id="retention-display" class="font-bold text-[var(--text-main)] font-mono">75</span>%
               </label>
-              <span class="text-xs text-[var(--text-muted)]">0 – 100%</span>
+              <span class="text-xs font-mono text-[var(--text-muted)]">0 – 100%</span>
             </div>
             <input 
               type="range" 
@@ -88,17 +88,17 @@ const pageDescription = "Assess your academic stress and AI study balance with a
               min="10" 
               max="100" 
               value="75" 
-              class="w-full h-2 bg-[var(--border-subtle)] rounded-lg appearance-none cursor-pointer accent-purple-600 mt-3"
+              class="w-full h-1.5 bg-[var(--border-subtle)] rounded appearance-none cursor-pointer mt-3"
             />
           </div>
         </div>
 
         <!-- Study Hours Comparison -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2 border-t border-[var(--border-subtle)]">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4 border-t border-[var(--border-subtle)]">
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <label for="genai-hours" class="text-xs font-semibold text-[var(--text-main)]">
-                AI Study Hours (ChatGPT, Claude): <span id="genai-display" class="font-bold text-purple-600 dark:text-purple-400 font-mono">8</span> hrs/wk
+                AI Study Hours (ChatGPT, Claude): <span id="genai-display" class="font-bold text-[var(--text-main)] font-mono">8</span> hrs/wk
               </label>
             </div>
             <input 
@@ -107,7 +107,7 @@ const pageDescription = "Assess your academic stress and AI study balance with a
               min="0" 
               max="40" 
               value="8" 
-              class="w-full h-2 bg-[var(--border-subtle)] rounded-lg appearance-none cursor-pointer accent-purple-600 mt-2"
+              class="w-full h-1.5 bg-[var(--border-subtle)] rounded appearance-none cursor-pointer mt-2"
             />
             <span class="text-[11px] text-[var(--text-muted)] block mt-1">Hours spent prompting, debugging, and reading AI summaries.</span>
           </div>
@@ -115,7 +115,7 @@ const pageDescription = "Assess your academic stress and AI study balance with a
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <label for="study-hours" class="text-xs font-semibold text-[var(--text-main)]">
-                Traditional Study (Books, Notes): <span id="study-display" class="font-bold text-purple-600 dark:text-purple-400 font-mono">14</span> hrs/wk
+                Traditional Study (Books, Notes): <span id="study-display" class="font-bold text-[var(--text-main)] font-mono">14</span> hrs/wk
               </label>
             </div>
             <input 
@@ -124,18 +124,18 @@ const pageDescription = "Assess your academic stress and AI study balance with a
               min="1" 
               max="40" 
               value="14" 
-              class="w-full h-2 bg-[var(--border-subtle)] rounded-lg appearance-none cursor-pointer accent-purple-600 mt-2"
+              class="w-full h-1.5 bg-[var(--border-subtle)] rounded appearance-none cursor-pointer mt-2"
             />
             <span class="text-[11px] text-[var(--text-muted)] block mt-1">Hours spent solving problems manually and reading textbooks.</span>
           </div>
         </div>
 
         <!-- Psychological / Emotional Factors -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2 border-t border-[var(--border-subtle)]">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4 border-t border-[var(--border-subtle)]">
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <label for="ai-dep" class="text-xs font-semibold text-[var(--text-main)]">
-                AI Dependency: <span id="dep-display" class="font-bold text-purple-600 dark:text-purple-400 font-mono">4</span> / 10
+                AI Dependency: <span id="dep-display" class="font-bold text-[var(--text-main)] font-mono">4</span> / 10
               </label>
             </div>
             <input 
@@ -144,7 +144,7 @@ const pageDescription = "Assess your academic stress and AI study balance with a
               min="1" 
               max="10" 
               value="4" 
-              class="w-full h-2 bg-[var(--border-subtle)] rounded-lg appearance-none cursor-pointer accent-purple-600 mt-2"
+              class="w-full h-1.5 bg-[var(--border-subtle)] rounded appearance-none cursor-pointer mt-2"
             />
             <div class="flex justify-between text-[11px] text-[var(--text-muted)] mt-1 font-mono">
               <span>1 (Independent)</span>
@@ -155,7 +155,7 @@ const pageDescription = "Assess your academic stress and AI study balance with a
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <label for="anxiety" class="text-xs font-semibold text-[var(--text-main)]">
-                Exam Anxiety Level: <span id="anxiety-display" class="font-bold text-purple-600 dark:text-purple-400 font-mono">5</span> / 10
+                Exam Anxiety Level: <span id="anxiety-display" class="font-bold text-[var(--text-main)] font-mono">5</span> / 10
               </label>
             </div>
             <input 
@@ -164,7 +164,7 @@ const pageDescription = "Assess your academic stress and AI study balance with a
               min="1" 
               max="10" 
               value="5" 
-              class="w-full h-2 bg-[var(--border-subtle)] rounded-lg appearance-none cursor-pointer accent-purple-600 mt-2"
+              class="w-full h-1.5 bg-[var(--border-subtle)] rounded appearance-none cursor-pointer mt-2"
             />
             <div class="flex justify-between text-[11px] text-[var(--text-muted)] mt-1 font-mono">
               <span>1 (Calm)</span>
@@ -173,12 +173,12 @@ const pageDescription = "Assess your academic stress and AI study balance with a
           </div>
         </div>
 
-        <!-- Action Button -->
+        <!-- Action Button (High Contrast Monochrome) -->
         <div class="pt-2">
           <button 
             type="button" 
             id="predict-btn"
-            class="w-full py-3.5 px-6 rounded-xl font-semibold text-white bg-purple-700 hover:bg-purple-800 transition cursor-pointer flex items-center justify-center gap-2 shadow-sm text-sm"
+            class="w-full py-3.5 px-6 rounded-md font-semibold bg-black text-white dark:bg-white dark:text-black hover:opacity-85 transition cursor-pointer flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-mono"
           >
             <span>Update Assessment</span>
             <span>→</span>
@@ -186,30 +186,30 @@ const pageDescription = "Assess your academic stress and AI study balance with a
         </div>
       </form>
 
-      <!-- RESULTS SECTION: CLEAR LOW / MEDIUM / HIGH BADGE & CARDS -->
+      <!-- RESULTS SECTION: CLEAR MONOCHROME LOW / MEDIUM / HIGH METER -->
       <div id="result-box" class="mt-8 pt-6 border-t border-[var(--border-subtle)]">
         
-        <!-- Big Visual Risk Indicator (LOW / MEDIUM / HIGH) -->
-        <div class="p-6 rounded-2xl bg-[var(--surface-card)] border border-[var(--border-subtle)] mb-6 text-center">
-          <span class="text-xs uppercase tracking-wider font-semibold text-[var(--text-muted)] block mb-2">
-            Burnout Risk Assessment Output:
+        <!-- Big Visual Risk Indicator (Monochrome) -->
+        <div class="p-6 rounded-xl bg-[var(--surface-card)] border border-[var(--border-subtle)] mb-6 text-center">
+          <span class="text-xs uppercase font-mono tracking-wider text-[var(--text-muted)] block mb-3">
+            Burnout Risk Assessment:
           </span>
 
           <!-- 3-Segment Visual Meter -->
-          <div class="grid grid-cols-3 gap-2 max-w-sm mx-auto mb-4">
-            <div id="badge-low" class="py-2 rounded-lg text-xs font-bold border transition-all bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500">
+          <div class="grid grid-cols-3 gap-2 max-w-sm mx-auto mb-4 font-mono">
+            <div id="badge-low" class="py-2.5 rounded-md text-xs font-bold border transition-all bg-black text-white dark:bg-white dark:text-black border-[var(--border-strong)]">
               LOW
             </div>
-            <div id="badge-medium" class="py-2 rounded-lg text-xs font-bold border transition-all bg-[var(--surface)] text-[var(--text-muted)] border-[var(--border-subtle)] opacity-50">
+            <div id="badge-medium" class="py-2.5 rounded-md text-xs font-bold border transition-all border-[var(--border-subtle)] text-[var(--text-muted)] opacity-30">
               MEDIUM
             </div>
-            <div id="badge-high" class="py-2 rounded-lg text-xs font-bold border transition-all bg-[var(--surface)] text-[var(--text-muted)] border-[var(--border-subtle)] opacity-50">
+            <div id="badge-high" class="py-2.5 rounded-md text-xs font-bold border transition-all border-[var(--border-subtle)] text-[var(--text-muted)] opacity-30">
               HIGH
             </div>
           </div>
 
           <!-- Primary Output Text -->
-          <div id="risk-headline" class="text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400">
+          <div id="risk-headline" class="text-xl sm:text-2xl font-black text-[var(--text-main)] tracking-tight">
             LOW BURNOUT RISK
           </div>
           <p id="risk-subline" class="text-xs text-[var(--text-muted)] mt-1">
@@ -218,40 +218,37 @@ const pageDescription = "Assess your academic stress and AI study balance with a
         </div>
 
         <!-- Personalized Action Plan -->
-        <div class="space-y-4">
-          <h3 class="text-xs font-bold uppercase tracking-wider text-[var(--text-muted)]">
-            Personalized Guidance & Advice:
+        <div class="space-y-3">
+          <h3 class="text-xs font-bold uppercase font-mono tracking-wider text-[var(--text-muted)]">
+            Personalized Guidance:
           </h3>
 
           <!-- Advice Item 1: Overview -->
-          <div class="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)]">
-            <h4 class="text-sm font-semibold text-[var(--text-main)] flex items-center gap-2 mb-1">
-              <span>📋</span>
-              <span id="overview-heading">Academic Health Summary</span>
+          <div class="p-4 rounded-lg border border-[var(--border-subtle)] bg-[var(--surface-card)]">
+            <h4 class="text-xs font-bold uppercase font-mono text-[var(--text-main)] mb-1" id="overview-heading">
+              Academic Health Summary
             </h4>
-            <p id="overview-text" class="text-sm text-[var(--text-muted)] leading-relaxed">
+            <p id="overview-text" class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
               Your study habits reflect a balanced routine. Your traditional study hours provide a strong foundation, keeping AI as an aid rather than an outsourced brain.
             </p>
           </div>
 
           <!-- Advice Item 2: AI vs Traditional Habit -->
-          <div class="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)]">
-            <h4 class="text-sm font-semibold text-[var(--text-main)] flex items-center gap-2 mb-1">
-              <span>⚖️</span>
-              <span id="ratio-heading">AI & Study Ratio Strategy</span>
+          <div class="p-4 rounded-lg border border-[var(--border-subtle)] bg-[var(--surface-card)]">
+            <h4 class="text-xs font-bold uppercase font-mono text-[var(--text-main)] mb-1" id="ratio-heading">
+              AI & Study Ratio Strategy
             </h4>
-            <p id="ratio-text" class="text-sm text-[var(--text-muted)] leading-relaxed">
+            <p id="ratio-text" class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
               Your ratio of traditional study to AI is sustainable. Continue doing pen-and-paper exercises before asking AI for hints.
             </p>
           </div>
 
           <!-- Advice Item 3: Exam Stress & Retention -->
-          <div class="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)]">
-            <h4 class="text-sm font-semibold text-[var(--text-main)] flex items-center gap-2 mb-1">
-              <span>🧠</span>
-              <span id="stress-heading">Retention & Exam Strategy</span>
+          <div class="p-4 rounded-lg border border-[var(--border-subtle)] bg-[var(--surface-card)]">
+            <h4 class="text-xs font-bold uppercase font-mono text-[var(--text-main)] mb-1" id="stress-heading">
+              Retention & Exam Strategy
             </h4>
-            <p id="stress-text" class="text-sm text-[var(--text-muted)] leading-relaxed">
+            <p id="stress-text" class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">
               To keep exam anxiety low, practice active recall from blank sheets of paper without AI assistance before tests.
             </p>
           </div>
@@ -261,19 +258,19 @@ const pageDescription = "Assess your academic stress and AI study balance with a
     </div>
 
     <!-- FAQs -->
-    <section class="mt-14 space-y-6">
-      <h2 class="text-lg font-bold text-[var(--text-main)]">Common Questions</h2>
-      <div class="space-y-4">
+    <section class="mt-14 space-y-4">
+      <h2 class="text-base font-bold text-[var(--text-main)]">Common Questions</h2>
+      <div class="space-y-3">
         {faqs.map(faq => (
-          <div class="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)]">
-            <h3 class="font-semibold text-sm text-[var(--text-main)] mb-1">{faq.q}</h3>
-            <p class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">{faq.a}</p>
+          <div class="p-4 rounded-lg border border-[var(--border-subtle)] bg-[var(--surface-card)]">
+            <h3 class="font-semibold text-xs sm:text-sm text-[var(--text-main)] mb-1">{faq.q}</h3>
+            <p class="text-xs text-[var(--text-muted)] leading-relaxed">{faq.a}</p>
           </div>
         ))}
       </div>
 
       <div class="pt-4 text-center">
-        <a href="/" class="text-xs font-semibold text-purple-600 dark:text-purple-400 hover:underline">
+        <a href="/" class="text-xs font-mono text-[var(--text-muted)] hover:text-[var(--text-main)] transition underline">
           ← Back to All Models
         </a>
       </div>
@@ -376,17 +373,18 @@ const pageDescription = "Assess your academic stress and AI study balance with a
     }
 
     function renderOutput(risk, gpa, genai, study, dep, anxiety, retention) {
+      const activeClass = "py-2.5 rounded-md text-xs font-bold border transition-all bg-black text-white dark:bg-white dark:text-black border-[var(--border-strong)] opacity-100";
+      const inactiveClass = "py-2.5 rounded-md text-xs font-bold border transition-all border-[var(--border-subtle)] text-[var(--text-muted)] opacity-30";
+
       // Reset meter badges to muted state
-      badgeLow.className = "py-2 rounded-lg text-xs font-bold border transition-all bg-[var(--surface)] text-[var(--text-muted)] border-[var(--border-subtle)] opacity-40";
-      badgeMedium.className = "py-2 rounded-lg text-xs font-bold border transition-all bg-[var(--surface)] text-[var(--text-muted)] border-[var(--border-subtle)] opacity-40";
-      badgeHigh.className = "py-2 rounded-lg text-xs font-bold border transition-all bg-[var(--surface)] text-[var(--text-muted)] border-[var(--border-subtle)] opacity-40";
+      badgeLow.className = inactiveClass;
+      badgeMedium.className = inactiveClass;
+      badgeHigh.className = inactiveClass;
 
       if (risk === "High") {
-        // Highlight High Badge
-        badgeHigh.className = "py-2 rounded-lg text-xs font-bold border transition-all bg-red-500/10 text-red-600 dark:text-red-400 border-red-500 opacity-100 ring-2 ring-red-500/20";
+        badgeHigh.className = activeClass;
         
         riskHeadline.textContent = "HIGH BURNOUT RISK";
-        riskHeadline.className = "text-2xl sm:text-3xl font-extrabold text-red-600 dark:text-red-400";
         riskSubline.textContent = "Warning: Severe study fatigue and exam anxiety detected.";
 
         overviewHeading.textContent = "High Cognitive Strain";
@@ -403,11 +401,9 @@ const pageDescription = "Assess your academic stress and AI study balance with a
         stressText.textContent = `With anxiety at ${anxiety}/10 and retention at ${retention}%, avoid last-minute cramming. Study in 25-minute focused bursts. Explain key concepts out loud without looking at any screen to prove to yourself that you know the material.`;
 
       } else if (risk === "Medium") {
-        // Highlight Medium Badge
-        badgeMedium.className = "py-2 rounded-lg text-xs font-bold border transition-all bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500 opacity-100 ring-2 ring-amber-500/20";
+        badgeMedium.className = activeClass;
 
         riskHeadline.textContent = "MEDIUM BURNOUT RISK";
-        riskHeadline.className = "text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400";
         riskSubline.textContent = "Notice: Manageable stress levels approaching burnout boundaries.";
 
         overviewHeading.textContent = "Moderate Cognitive Strain";
@@ -420,11 +416,9 @@ const pageDescription = "Assess your academic stress and AI study balance with a
         stressText.textContent = `To bring your anxiety down from ${anxiety}/10, simulate test conditions once a week: no notes, no AI, set a timer. This builds genuine test-day confidence and protects your GPA (${gpa}).`;
 
       } else {
-        // Highlight Low Badge
-        badgeLow.className = "py-2 rounded-lg text-xs font-bold border transition-all bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500 opacity-100 ring-2 ring-emerald-500/20";
+        badgeLow.className = activeClass;
 
         riskHeadline.textContent = "LOW BURNOUT RISK";
-        riskHeadline.className = "text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400";
         riskSubline.textContent = "Optimal: Healthy study balance and sustainable cognitive load.";
 
         overviewHeading.textContent = "Healthy Academic Routine";

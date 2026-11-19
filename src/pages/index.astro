@@ -4,36 +4,32 @@ import Layout from '../layouts/Layout.astro';
 const models = [
   {
     title: "Student Burnout Risk Predictor",
-    badge: "Live Now",
-    badgeClass: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
-    description: "Evaluates academic fatigue, study habits, and Generative AI dependency based on 49,000+ data points with personalized guidance.",
-    tags: ["Ensemble ML", "Private & In-Browser", "Available"],
+    badge: "LIVE",
+    description: "Evaluates academic fatigue, study hours, and Generative AI dependency based on 49,000+ student data points with personalized guidance.",
+    tags: ["Ensemble ML", "In-Browser", "Active"],
     route: "/burnout-predictor/",
     isLive: true
   },
   {
     title: "House Price Valuation Model",
-    badge: "Coming Soon",
-    badgeClass: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
-    description: "Estimates property valuations using multi-variable regression (square footage, build quality, location tiers).",
-    tags: ["Supervised Regression", "Under Training"],
+    badge: "COMING SOON",
+    description: "Estimates residential property values using multi-variable regression (square footage, build quality, location tiers).",
+    tags: ["Regression", "Under Training"],
     route: "/house-price-predictor/",
     isLive: false
   },
   {
     title: "Stock Trend Forecaster",
-    badge: "Coming Soon",
-    badgeClass: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
-    description: "Predicts directional market trends and moving-average volatility bands using time-series modeling.",
+    badge: "COMING SOON",
+    description: "Predicts directional market trends and volatility bands using time-series analysis.",
     tags: ["Time-Series", "Under Training"],
     route: "/stock-predictor/",
     isLive: false
   },
   {
     title: "Credit Loan Approval Classifier",
-    badge: "Coming Soon",
-    badgeClass: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
-    description: "Evaluates applicant risk profiles and credit risk boundaries using optimized decision trees.",
+    badge: "COMING SOON",
+    description: "Evaluates applicant credit risk and loan qualification thresholds using decision trees.",
     tags: ["Classification", "Under Training"],
     route: "/loan-classifier/",
     isLive: false
@@ -60,60 +56,60 @@ const faqs = [
   title="Universe.ds | Machine Learning & Data Science Models Hub"
   description="Explore machine learning models running directly and privately inside your web browser."
 >
-  <!-- Hero Section (Clean, Simple, No Flashy Lights) -->
+  <!-- Hero Section (Strict Monochrome) -->
   <section class="max-w-4xl mx-auto px-4 sm:px-6 pt-16 pb-12 text-center">
-    <span class="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400 block mb-3">
-      Data Science & Machine Learning Hub
+    <span class="text-xs font-mono uppercase tracking-widest text-[var(--text-muted)] block mb-3">
+      Machine Learning Models
     </span>
-    <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-[var(--text-main)] mb-4">
+    <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-[var(--text-main)] mb-4">
       Welcome to my Universe
     </h1>
     <p class="max-w-xl mx-auto text-sm sm:text-base text-[var(--text-muted)] leading-relaxed mb-8">
-      A collection of machine learning models running privately and client-side in your browser with zero latency.
+      A collection of machine learning models running client-side inside your browser with zero latency and full privacy.
     </p>
 
     <div class="flex items-center justify-center gap-3">
       <a 
         href="/burnout-predictor/" 
-        class="px-5 py-2.5 rounded-xl font-semibold text-white bg-purple-700 hover:bg-purple-800 transition shadow-sm text-sm"
+        class="px-5 py-2.5 rounded-md font-semibold bg-black text-white dark:bg-white dark:text-black hover:opacity-85 transition text-sm shadow-sm"
       >
         Open Burnout Predictor →
       </a>
       <a 
         href="#models-list" 
-        class="px-5 py-2.5 rounded-xl font-medium border border-[var(--border-subtle)] bg-[var(--surface)] hover:bg-[var(--surface-card)] text-sm transition"
+        class="px-5 py-2.5 rounded-md font-medium border border-[var(--border-subtle)] bg-[var(--surface)] hover:bg-[var(--surface-card)] text-sm transition"
       >
         View All Models
       </a>
     </div>
   </section>
 
-  <!-- Models Grid (Each model clicks to its own dedicated page) -->
+  <!-- Models Grid (Strict Monochrome) -->
   <section id="models-list" class="max-w-4xl mx-auto px-4 sm:px-6 py-10 scroll-mt-14">
     <div class="border-b border-[var(--border-subtle)] pb-4 mb-6 flex items-center justify-between">
       <div>
-        <h2 class="text-xl font-bold text-[var(--text-main)]">Machine Learning Models</h2>
-        <p class="text-xs text-[var(--text-muted)] mt-0.5">Select any model to open its dedicated page</p>
+        <h2 class="text-lg font-bold text-[var(--text-main)]">Models Directory</h2>
+        <p class="text-xs text-[var(--text-muted)] mt-0.5">Click any model to open its dedicated page</p>
       </div>
       <span class="text-xs text-[var(--text-muted)] font-mono">4 Models</span>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       {models.map(m => (
         <a 
           href={m.route} 
-          class="block p-6 rounded-2xl border border-[var(--border-subtle)] bg-[var(--surface)] hover:border-purple-500 hover:shadow-sm transition group"
+          class="block p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface)] hover:border-[var(--text-main)] transition group"
         >
           <div class="flex items-center justify-between gap-2 mb-3">
-            <span class={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${m.badgeClass}`}>
+            <span class={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border ${m.isLive ? 'border-[var(--border-strong)] text-[var(--text-main)] bg-[var(--surface-card)]' : 'border-[var(--border-subtle)] text-[var(--text-muted)]'}`}>
               {m.badge}
             </span>
-            <span class="text-xs text-[var(--text-muted)] group-hover:text-purple-600 dark:group-hover:text-purple-400 font-medium transition">
-              {m.isLive ? "Launch Tool →" : "Details →"}
+            <span class="text-xs text-[var(--text-muted)] group-hover:text-[var(--text-main)] font-mono transition">
+              {m.isLive ? "Open →" : "View →"}
             </span>
           </div>
 
-          <h3 class="text-base font-bold text-[var(--text-main)] mb-1.5 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition">
+          <h3 class="text-sm font-bold text-[var(--text-main)] mb-1.5 transition">
             {m.title}
           </h3>
 
@@ -133,14 +129,14 @@ const faqs = [
     </div>
   </section>
 
-  <!-- Clean FAQ Section -->
+  <!-- Clean Monochrome FAQ Section -->
   <section class="max-w-3xl mx-auto px-4 sm:px-6 py-12 border-t border-[var(--border-subtle)] mt-8">
-    <h2 class="text-lg font-bold text-[var(--text-main)] mb-6 text-center">Frequently Asked Questions</h2>
-    <div class="space-y-4">
+    <h2 class="text-base font-bold text-[var(--text-main)] mb-6 text-center">Frequently Asked Questions</h2>
+    <div class="space-y-3">
       {faqs.map(faq => (
-        <div class="p-5 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-card)]">
-          <h3 class="font-semibold text-sm text-[var(--text-main)] mb-1">{faq.q}</h3>
-          <p class="text-xs sm:text-sm text-[var(--text-muted)] leading-relaxed">{faq.a}</p>
+        <div class="p-4 rounded-lg border border-[var(--border-subtle)] bg-[var(--surface-card)]">
+          <h3 class="font-semibold text-xs sm:text-sm text-[var(--text-main)] mb-1">{faq.q}</h3>
+          <p class="text-xs text-[var(--text-muted)] leading-relaxed">{faq.a}</p>
         </div>
       ))}
     </div>

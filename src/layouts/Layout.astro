@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = "Welcome to my Universe | Data Science & Machine Learning Hub",
-  description = "Step into my Universe of Data Science, Machine Learning, Neural Networks, and In-Browser Predictive Models running with 0 latency."
+  title = "Universe.ds | Machine Learning & Data Science Hub",
+  description = "Explore machine learning models running client-side with zero latency."
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://cj-nbr.github.io').toString().replace(/\/?$/, '/');
@@ -20,7 +20,7 @@ const schemaData = {
       "@type": "WebSite",
       "@id": "https://cj-nbr.github.io/#website",
       "url": "https://cj-nbr.github.io/",
-      "name": "My Universe - Data Science & ML",
+      "name": "Universe.ds",
       "description": description,
       "publisher": {
         "@type": "Person",
@@ -41,9 +41,9 @@ const schemaData = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌌</text></svg>" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬛</text></svg>" />
 
-    <!-- Open Graph / Social Media -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
@@ -64,23 +64,23 @@ const schemaData = {
       })();
     </script>
   </head>
-  <body class="bg-[var(--bg-page)] text-[var(--text-main)] transition-colors duration-200">
-    <!-- Navigation Header -->
+  <body class="bg-[var(--bg-page)] text-[var(--text-main)] transition-colors duration-150">
+    <!-- Navigation Header (Strict Monochrome) -->
     <header class="sticky top-0 z-50 bg-[var(--surface)] border-b border-[var(--border-subtle)]">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
         <a href="/" class="flex items-center gap-2 font-bold tracking-tight text-base group">
-          <span class="w-6 h-6 rounded-md bg-purple-700 text-white flex items-center justify-center text-xs font-bold">
+          <span class="w-6 h-6 rounded bg-black text-white dark:bg-white dark:text-black flex items-center justify-center text-xs font-bold">
             U
           </span>
-          <span class="text-[var(--text-main)] font-semibold">Universe.ds</span>
+          <span class="text-[var(--text-main)] font-bold">Universe.ds</span>
         </a>
 
-        <div class="flex items-center gap-4">
-          <nav class="hidden sm:flex items-center gap-6 text-sm font-medium text-[var(--text-muted)]">
+        <div class="flex items-center gap-5">
+          <nav class="hidden sm:flex items-center gap-6 text-xs font-medium text-[var(--text-muted)]">
             <a href="/" class="hover:text-[var(--text-main)] transition-colors">Home</a>
-            <a href="/burnout-predictor/" class="text-purple-600 dark:text-purple-400 font-semibold transition-colors flex items-center gap-1.5">
+            <a href="/burnout-predictor/" class="hover:text-[var(--text-main)] transition-colors flex items-center gap-1.5">
               <span>Burnout Predictor</span>
-              <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">LIVE</span>
+              <span class="text-[9px] px-1 py-0.2 rounded border border-[var(--border-strong)] text-[var(--text-main)] font-mono">LIVE</span>
             </a>
             <a href="/#models-list" class="hover:text-[var(--text-main)] transition-colors">All Models</a>
           </nav>
@@ -90,7 +90,7 @@ const schemaData = {
             id="theme-toggle"
             type="button"
             aria-label="Toggle dark/light theme"
-            class="w-9 h-9 rounded-full flex items-center justify-center border border-[var(--border-subtle)] bg-[var(--surface-card)] hover:opacity-80 transition cursor-pointer text-sm"
+            class="w-8 h-8 rounded-md flex items-center justify-center border border-[var(--border-subtle)] bg-[var(--surface-card)] hover:bg-[var(--border-subtle)] transition cursor-pointer text-xs"
           >
             <span id="theme-toggle-icon">🌙</span>
           </button>
@@ -99,36 +99,35 @@ const schemaData = {
             href="https://github.com/cj-nbr/DS" 
             target="_blank" 
             rel="noopener noreferrer"
-            class="text-xs sm:text-sm font-medium px-3.5 py-1.5 rounded-full border border-[var(--border-subtle)] hover:bg-[var(--surface-card)] transition flex items-center gap-1.5"
+            class="text-xs font-medium px-3 py-1.5 rounded-md border border-[var(--border-subtle)] hover:border-[var(--text-main)] transition flex items-center gap-1.5"
           >
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
             <span>GitHub</span>
           </a>
         </div>
       </div>
     </header>
 
-    <!-- Main Content Slot -->
-    <main class="relative z-10 flex-grow">
+    <!-- Main Content -->
+    <main class="flex-grow">
       <slot />
     </main>
 
-    <!-- Footer -->
-    <footer class="relative z-10 border-t border-[var(--border-subtle)] mt-24 py-12 bg-[var(--surface-card)]">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-[var(--text-muted)]">
-        <div class="flex items-center gap-2">
-          <span class="text-purple-400">✦</span>
-          <span>My Universe — Engineered for zero-latency machine learning models.</span>
+    <!-- Footer (Strict Monochrome) -->
+    <footer class="border-t border-[var(--border-subtle)] mt-20 py-8 bg-[var(--surface-card)]">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--text-muted)]">
+        <div>
+          <span>Universe.ds — In-browser machine learning models.</span>
         </div>
-        <div class="flex items-center gap-6">
-          <a href="#showcase" class="hover:text-[var(--text-main)] transition">Models</a>
-          <a href="#architecture" class="hover:text-[var(--text-main)] transition">Specs</a>
+        <div class="flex items-center gap-5">
+          <a href="/" class="hover:text-[var(--text-main)] transition">Home</a>
+          <a href="/burnout-predictor/" class="hover:text-[var(--text-main)] transition">Burnout Model</a>
           <a href="https://github.com/cj-nbr/DS" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--text-main)] transition">Repository</a>
         </div>
       </div>
     </footer>
 
-    <!-- Theme Toggle Controller -->
+    <!-- Theme Controller -->
     <script is:inline>
       const toggleBtn = document.getElementById('theme-toggle');
       const toggleIcon = document.getElementById('theme-toggle-icon');
